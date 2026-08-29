@@ -208,9 +208,12 @@ Page {
 
         if (globalFilter.enabled && globalFilter.assigneeIds.length > 0) {
             task.filterByAssignees = true;
-            task.selectedAssigneeIds = globalFilter.assigneeIds;
+            task.selectedAssigneeIds = globalFilter.assigneeIds.slice();
+
             tasklist.filterByAssignees = true;
-            tasklist.selectedAssigneeIds = globalFilter.assigneeIds;
+            tasklist.selectedAssigneeIds = globalFilter.assigneeIds.slice();
+
+            assigneeFilterMenu.selectedAssigneeIds = globalFilter.assigneeIds.slice();
         } else if (!globalFilter.enabled) {
             task.filterByAssignees = false;
             task.selectedAssigneeIds = [];
